@@ -17,8 +17,6 @@ function start(){
 }
 
 
-   
-
 function preventFormSubmit(){
     function handleFormSubmit(event){
         event.preventDefault();
