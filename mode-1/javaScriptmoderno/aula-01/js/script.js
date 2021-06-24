@@ -73,3 +73,7 @@ console.log(text2);
 const sun5 = (a, b = 1) => a + b;
 
 console.log(sun5(2, 3));
+
+d.push('e');
+
+console.log(d)
