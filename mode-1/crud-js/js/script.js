@@ -1,135 +1,114 @@
 window.addEventListener('load', start);
 
-//VARIAVEIS GLOBAIS
-
-var globalNames = ['Um', 'Dois', 'Três', 'Quatro', 'cinco']; //arrey de dados
+var globalNames =['Um', 'Dois', 'Três', 'Quatro'];
 var inputName = null;
 var isEditing = false;
 var currentIndex = null;
 
-//FUNÇÃO START INICIALIZANDO TUDO AO CARREGAR A PÁGINA
-
-function start(){ 
-    inputName = document.querySelector('#inputName');
-    preventFormSubmit();
-    activateInput();
-    render();  
+function start(){
+    inputName = document.querySelector('#inputName'); 
+    preventFormSubmit(); // evitar que o form seja recarregado 
+    activanteInput(); // cursor no input
+    render()
 }
 
 
-function preventFormSubmit(){
-    function handleFormSubmit(event){
-        event.preventDefault();
+ function preventFormSubmit() {
+    function hendleFormSubmit(event) {
+        event.preventDefault(); //previne o recarregamento da tela
     }
-
     var form = document.querySelector('form');
-    form.addEventListener('submit', handleFormSubmit);
+    form.addEventListener('submit', hendleFormSubmit)
 
 }
 
-function  activateInput(){
-     //INSERT
-    function insertName(newName){
-        globalNames.push(newName);
-        render();
-    }
-    //
-    
+function activanteInput(){
+    function insartName(newName){
+            globalNames.push(newName)
+    };
     function updateName(newName){
         globalNames[currentIndex] = newName
-        render();
-    }         
-
-    function handletyping(event){
-
-        var hasText = !!event.target.value && event.target.value.trim() !== '';
-        if(!hasText){
-            clearInput();
-            return;
-        }
-
-        if(event.key === 'Enter'){
-            if(isEditing){
-                updateName(event.target.value);
-
-            }
-            else{
-                insertName(event.target.value);
-            }
-            
-           isEditing = false; 
-           clearInput();
-        }
-
-
-
+        render()
     }
-    inputName.addEventListener('keyup', handletyping);
-    inputName.focus();
-}
+    function handletping(event){
+        if(event.key === 'Enter' && event.target.value.trim() !== ''){
+            if(isEditing){
+                
+                updateName(event.target.value)
+            }else{
+               
+                insartName(event.target.value)
+                render() 
+            }
+            isEditing = false; 
+            clear()   
+        } 
+    }
+    inputName.focus() // foca o curso
+    inputName.addEventListener('keyup'/*keyup capitura o evento da tecla*/, handletping);
+} 
 
 function render(){
-   function createDeleteButten(index){
-       //DELETE
-        function deleteName(){
-            globalNames.splice(index, 1);
-            render();
+        function createDeleteButten(index){ // deletar o botão
+            function deleteName(){
+                globalNames.splice(index, 1)
+                render();
+            }
+
+            var button = document.createElement('button')
+            button.classList.add('deleteButton')
+            button.textContent = 'x';
+            button.addEventListener('click', deleteName)
+            return button
+        };
+
+        function createSpan(name, index){
+            function aditTtem(){
+                inputName.value = name
+                inputName.focus();
+                isEditing = true;
+                currentIndex = index;
+            }
+            var span = document.createElement('span')
+            span.classList.add('clickable')
+            span.textContent = name;
+            span.addEventListener('click', aditTtem)
+
+            return span
         }
-        
-        //Criação do botão delete
-        var button = document.createElement('button');
-        button.classList.add('deleteButton');
-        button.textContent = 'x'
-        button.addEventListener('click', deleteName)
-        return button;
-     }
 
-     //edição
 
-     function cleateSpan(name, index){
-        var span = document.createElement('span');
-        function editItem(){
-            inputName.value = name;
-            inputName.focus();
-            isEditing = true;
-            currentIndex = index;
+        var divNames = document.querySelector('#names');
+        divNames.innerHTML = '';
+        //criar Ul
+        //Fazer n li 's, conforme o tamanho do globalnames
 
-        }
-        span.classList.add('clickable');
-        span.textContent = name;
-        span.addEventListener('click', editItem)
-
-        return span;
-     }
-
-     var divNames = document.querySelector('#names');
-    divNames.innerHTML = ''
-
- 
-//crição ul
-//fazer n li s conforme o tamanho do evetor globalNmames
-    var ul = document.createElement('ul');
+        var ul = document.createElement('ul') //criando ul
 
         for(var i = 0; i < globalNames.length; i++){
-            var currentName = globalNames[i];
+            var currentName = globalNames[i]
+            var li = document.createElement('li')
+            var span = createSpan(currentName, i)
+            
+           var button = createDeleteButten(i)
 
-            var li = document.createElement('li');
-            var button = createDeleteButten(i);
-            var span = cleateSpan(currentName, i);
-
-           
+            
             li.appendChild(button);
             li.appendChild(span);
-            ul.appendChild(li);
-        }
+            ul.appendChild(li)
+       }
+    
 
-    divNames.appendChild(ul);
-    clearInput();
-   
+        divNames.appendChild(ul);
+        clear()
 }
 
-function clearInput(){
+function clear(){
     inputName.value = '';
     inputName.focus();
 
+    
+
+
 }
+
