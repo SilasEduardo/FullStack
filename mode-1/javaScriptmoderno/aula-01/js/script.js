@@ -1,79 +1,81 @@
-'use strict'; //o Javascript acusa mais erros
+'use strict'; // o javascript acusa mais erros
 
-// var escopo abragente
-// let escopo reduzido
+console.log('Hello World');
+
+
+// var x let
+
+
+// var tem escopo abragente
+//let escopo reduzido
+
 
 
 function withVar(){
-    for (var i = 0; i < 10; i++){
-        console.log('var '+ i);
+    for(var i = 0;i < 10; i++){
+        console.log(i)
     }
-    i = 20;
+    i=20;
     console.log(i)
+
 }
+
 function withLet(){
-    for (let i = 0; i < 10; i++){
-        console.log('var '+ i);
+    for(let i = 0;i < 10; i++){
+        console.log('let ' + i)
     }
-    
-    //i = 20;
-    
+    //i=20;
+    //console.log(i)
+
 }
+
 withVar();
 withLet();
 
-/*const nome = 22; //const não eixa reatribuir valor
-nome = 3
 
-console.log(nome)*/
+// const não pode reatribuir valores
+//c = 20
 
 
 const d = [];
-// d = 'silas'; nesta caso da erro
-d.push('silas'); // para inserir uma variavel no vetor
-
-console.log(d); 
-
-
- function sun (a, b){
-     return a + b
- }
-
- 
-
- const sun2 = function(a, b){  //função anonima
-     return a + b;
- } 
-
- 
- //arrow function
-
- const sun3 = (a, b) =>{
-    return a + b;
- }
- //arrow function reduzida
-
- const sun4 = (a, b) => 2 + 4;
-console.log(sun3(2, 3))
- console.log(sun(2, 3));
- console.log(sun2(2, 3));
- console.log(sun4(2, 3));
-
-//templete literals
-
-
-const name1 = 'Silas';
-const surName = 'Eduardo';
-const text1 ='meu nome é ' + name1 +' ' + surName;
-const text2 = `meu nome é ${name1} ${surName}`;
-
-console.log(text2);
-console.log(text2);
-
-const sun5 = (a, b = 1) => a + b;
-
-console.log(sun5(2, 3));
-
-d.push('e');
+console.log[d]
+d.push(1)
 
 console.log(d)
+
+function sum(a, b){
+    return a + b
+}
+
+const sum2 = function(a, b){return a + b}
+
+
+const sum3 = (a, b) => a + b
+
+console.log(sum(2, 3));
+console.log(sum2(2, 3));
+console.log(sum3(2, 3));
+
+
+/// template literals
+
+
+
+const nome = 'Silas';
+
+const idade = '27';
+
+const cor = 'Negra';
+
+const nacionalidade = 'Brasileiro';
+
+
+console.log(`datos pessoais ${nome} ${idade}\n ${cor} ${nacionalidade}` )
+
+
+
+const sum4 = (a, b = 10) => a +b;
+
+console.log(sum4(2));
+
+
