@@ -69,9 +69,9 @@ function handleinputRangeChange(event){
 function syncDiv(){
     divSquare.style.backgroundColor = `rgb(${r},${g},${b})`;
 
-    inputTextRed.value = r
-    inputTextGreen.value = g
-    inputTextBlue.value = b
+    inputTextRed.value = r;
+    inputTextGreen.value = g;
+    inputTextBlue.value = b;
 
    
 }
