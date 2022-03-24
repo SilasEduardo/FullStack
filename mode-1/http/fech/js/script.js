@@ -4,6 +4,8 @@ window.addEventListener('load', ()=>{
         res.json().then(data =>{
           showData(data)
         })
+    }).catch(erro => {
+        console.log('Erro na requisição')
     })
 })
 
