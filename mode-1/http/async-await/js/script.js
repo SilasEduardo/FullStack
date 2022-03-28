@@ -48,9 +48,10 @@ function doFach(){
         console.log('Erro na requisição')
     })
 }
+
 async function doFachAsync(){
-    const res = await fetch('https://api.github.com/users/silasEduardo');
-    const json = await res.json()
- 
-    console.log(json)
+    const res = await fetch('https://api.github.com/users/silasEduardo')
+    const data = await res.json()
+    console.log(data)
 }
+

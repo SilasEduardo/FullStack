@@ -1,0 +1,58 @@
+.titulo{
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 50px;
+}
+
+.barra-pesquisa{
+    display: inline-flex;
+    float: left;
+    width: 100%;
+}
+
+.hr{
+    font-size: 40px;
+    width: 100%; 
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-color: green;
+    
+}
+.button1{
+    width: 180px;
+    height: 50px;
+    margin: 10px;
+    color: green;
+    background-color: rgb(154, 216, 154);
+}
+.buscar{
+    color: green;
+    font-size: 40px;
+    position: relative;top:20px;
+}
+.outinput{
+    margin-top: 10px;
+    vertical-align: top;
+    display: inline-flex;
+    
+}
+.user{
+   margin: 10px;
+   width: 800px;
+   height: 500px;
+   border: solid;
+   float: left;
+   border-radius: 10px;
+}
+.estatistica{
+   margin-top: 10px;
+   width: 700px;
+   height: 300px;
+   border: solid;
+   border-radius: 10px;
+}
+.textuser{
+   font-size: 50px;
