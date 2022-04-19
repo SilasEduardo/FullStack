@@ -42,7 +42,7 @@
 .user{
    margin: 10px;
    width: 800px;
-   height: 500px;
+   height: 100%;
    border: solid;
    float: left;
    border-radius: 10px;
@@ -50,9 +50,39 @@
 .estatistica{
    margin-top: 10px;
    width: 700px;
-   height: 300px;
+   height: 100%;
    border: solid;
    border-radius: 10px;
 }
 .textuser{
    font-size: 50px;
+
+}
+
+.people{
+    
+       display: flex;
+}
+
+.peoples{
+    display: inline;
+    width:100px;
+}
+
+.people img{
+    border-radius: 50%;
+    width: 75px;
+    margin-right: 10px;
+}
+
+.people p{
+    align-items: center;
+    margin-right: 10px;
+}
+
+#statistic p{
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+
+}
